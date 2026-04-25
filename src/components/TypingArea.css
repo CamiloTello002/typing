@@ -1,0 +1,82 @@
+.typing-area-wrapper {
+  width: 100%;
+  cursor: text;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.hidden-input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+  left: -9999px;
+  top: -9999px;
+}
+
+.typing-area {
+  font-family: var(--font-mono);
+  font-size: clamp(15px, 3vw, 19px);
+  line-height: 2.2;
+  word-break: break-word;
+  width: 100%;
+  max-width: 680px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Character states */
+.char {
+  position: relative;
+  display: inline-block;
+  white-space: pre;
+  color: var(--text-secondary);
+  transition: color 0.05s;
+}
+
+.char--correct {
+  color: var(--correct);
+}
+
+.char--incorrect {
+  color: var(--incorrect);
+  background: var(--incorrect-bg);
+  border-radius: 2px;
+}
+
+.char--current {
+  color: var(--text-secondary);
+}
+
+/* Caret */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.char--current::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10%;
+  height: 80%;
+  width: 2px;
+  background: var(--caret);
+  border-radius: 1px;
+  animation: blink 1s step-end infinite;
+}
+
+/* Solid caret while typing */
+.typing-area[data-phase="typing"] .char--current::before {
+  animation: none;
+}
+
+.typing-hint {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin: 0;
+}

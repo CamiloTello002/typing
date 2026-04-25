@@ -1,0 +1,107 @@
+.results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+  max-width: 520px;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.results-title {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  margin: 0;
+}
+
+.results-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 16px;
+  gap: 6px;
+}
+
+.metric--main .metric-value {
+  font-size: clamp(40px, 10vw, 64px);
+  color: var(--caret);
+}
+
+.metric-value {
+  font-family: var(--font-mono);
+  font-size: clamp(28px, 7vw, 44px);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.metric-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: lowercase;
+  letter-spacing: 0.05em;
+}
+
+.pb-banner {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--caret);
+  background: rgba(226, 183, 20, 0.1);
+  border: 1px solid rgba(226, 183, 20, 0.3);
+  border-radius: 8px;
+  padding: 10px 20px;
+  letter-spacing: 0.05em;
+}
+
+.reset-btn {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 32px;
+  border-radius: 8px;
+  transition: background 0.2s, transform 0.1s;
+  letter-spacing: 0.03em;
+}
+
+.reset-btn:hover {
+  background: var(--accent-hover);
+}
+
+.reset-btn:active {
+  transform: scale(0.97);
+}
+
+.reset-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin: 0;
+}
+
+@media (max-width: 380px) {
+  .results-metrics {
+    grid-template-columns: 1fr;
+  }
+}

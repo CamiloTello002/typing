@@ -1,0 +1,39 @@
+.timer-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.timer-seconds {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--timer-bar);
+  min-width: 32px;
+  text-align: right;
+  transition: color 0.3s;
+}
+
+.timer-seconds--warning {
+  color: var(--timer-warn);
+}
+
+.timer-track {
+  flex: 1;
+  height: 4px;
+  background: var(--bg-tertiary);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.timer-fill {
+  height: 100%;
+  background: var(--timer-bar);
+  border-radius: 2px;
+  transition: width 0.1s linear, background 0.3s;
+}
+
+.timer-fill--warning {
+  background: var(--timer-warn);
+}
